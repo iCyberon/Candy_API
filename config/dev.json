@@ -1,0 +1,8 @@
+{
+    "postgres": {
+        "user": "api",
+        "database": "candy-dev",
+        "password": "api123",
+        "host": "127.0.0.1"
+    }
+}

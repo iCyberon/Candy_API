@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+// Module dependencies
+const config = require('config');
+const path = require('path');
+const db = require('../helpers').db;
+
+// Setup DB helper
+db.setup(path.join(__dirname, '../sql'));
+
+const args = process.argv;
+
+// Let's keep code clean
+(async function() {
+  try {
+    await db.run('setup/schema');
+    console.log(`Successfully created table`);
+    
+    // Naive way to detect import flag
+    if (args.includes('import')) {
+      const result = await db.run('setup/data');
+      console.log(`Successfully imported ${result.rowCount} items`);
+    }
+
+    process.exit(0);
+  } catch (error) {
+    console.error(`Encountered error`);
+    console.error(`Fix issue and run again`);
+    console.error(error);
+  }
+})();

@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+// Module dependencies
+const app = require('../app');
+const helper = require('../helpers').server;
+const debug = require('debug')('api:server');
+const http = require('http');
+
+// Create HTTP server
+const server = http.createServer(app);
+
+// Let the packets take you to the moon
+server.listen(helper.port);
+server.on('error', helper.onError);
+server.on('listening', helper.onListening);
+
+// Exit listeners
+process.on('SIGINT', helper.onExit.bind(null, app, server));
+process.on('SIGTERM', helper.onExit.bind(null, app, server));
+process.on('uncaughtException', helper.onExit.bind(null, app, server));

@@ -1,0 +1,3 @@
+SELECT * 
+FROM candies 
+ORDER BY id DESC;

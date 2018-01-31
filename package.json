@@ -1,0 +1,45 @@
+{
+  "name": "payroll-pandae-candy-api",
+  "version": "0.1.0",
+  "description": "Candy API",
+  "scripts": {
+    "setup": "node ./bin/setup",
+    "start": "node ./bin/www",
+    "debug": "nodemon --exec DEBUG=* npm start",
+    "dev": "nodemon --exec npm start",
+    "test": "mocha --timeout 10000"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 1,
+      "no-unused-vars": 1
+    }
+  },
+  "author": "Vahagn Mkrtchyan <vahagn.mkrtchyan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "config": "^1.29.2",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "express-async-errors": "^2.1.0",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "nodemon": "^1.14.11",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^5.0.0"
+  }
+}
